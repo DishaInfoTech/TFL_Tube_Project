@@ -1,0 +1,34 @@
+The duration of the exercise will be 60 minutes as below:
+·  	5 minutes for the test requirement details.
+·  	50 minutes for implementations
+·  	5 minutes for the wrap!
+
+What is the exercise?
+For the exercise, we are choosing a free public API from TFL (Transport for London).
+TFL is the integrated transport authority responsible for meeting the Mayor's strategy and commitments on transport in London.
+TFL runs the day-to-day operation of the capital's public transport network and manages London's main roads. https://tfl.gov.uk/
+TFL has different modes of transport and one of them is London Underground, better known as the Tube, has 11 lines covering 402km and serving 272 stations.
+The Tube handles up to five million passenger journeys a day. At peak times, there are more than 543 trains whizzing around the capital.
+
+As part of this exercise, we will use of TFL tube (London Underground) line APIs (https://api-portal.tfl.gov.uk/api-details#api=Line) to get & validate the status of the below train lines.
+
+1.   Bakerloo
+2.   Central
+3.   Hammersmith & City
+4.   Tram
+5.   Waterloo & City
+
+TFL releases the public TfL data (or 'open data') through APIs about its services
+e.g.  https://api-portal.tfl.gov.uk/apis
+
+Please design & implement BDD style scenario to validate that the service status of above mentioned 5 lines has “Good service”.
+
+Step1: You would need to first use the API https://api.tfl.gov.uk/line/mode/tube and retrieve “id” from the response for the given line name.
+This API would list all the lines for London Underground with details.
+The implementation would include JSON response processing & fetching “id” for a given line name.
+
+e.g Bakerloo line has id “bakerloo”
+
+Step2: Using the “id” from the Step1, call status API https://api.tfl.gov.uk/Line/{id}/status
+e.g https://api.tfl.gov.uk/Line/bakerloo/status
+And validate lineStatuses.statusSeverityDescription is “Good service”.
